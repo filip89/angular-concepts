@@ -12,7 +12,8 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:prettier/recommended"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
@@ -40,20 +41,7 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {
-        "prefer-const": "error",
-        "max-len": [
-          "error",
-          {
-            "code": 80,
-            "tabWidth": 2,
-            "ignoreComments": true,
-            "ignoreUrls": true,
-            "ignoreStrings": true,
-            "ignoreTemplateLiterals": true
-          }
-        ]
-      }
+      "rules": { }
     }
   ]
 }
