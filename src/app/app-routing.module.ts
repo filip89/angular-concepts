@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +11,17 @@ const routes: Routes = [
   },
   {
     path: 'todos',
-    //module will be lazy loaded, bundles only fetched when route is accessed
+    /*
+      Guards can prevent access to routes, when a router finds a matching route branch it will check each of the guards (nested also),
+      and if a single fails, route won't be activated. Also, any of the resolvers won't run until all guards have passed - even
+      if deeply nested guard fails, none of the resolvers would trigger //TODO
+    */
+    canActivate: [authGuard],
+    /*
+      Module will be lazy loaded, bundles only fetched when route is accessed
+      lazy loaded module also creates its own injector which can be configured with specific providers,
+      if a service is not available in the injector it will look in a parent injector, in this case the root
+    */
     loadChildren: () => import('./todos/todos.module').then((m) => m.TodosModule)
   }
 ];
