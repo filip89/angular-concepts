@@ -2,4 +2,9 @@
   <button (click)='logout()'>Logout</button>
 </ng-container>
 <h1>{{title}}</h1>
+<nav class='nav'>
+  <ul class='link-list'>
+    <li><a [routerLink]='["todos"]'>Todos</a></li>
+  </ul>
+</nav>
 <router-outlet></router-outlet>
