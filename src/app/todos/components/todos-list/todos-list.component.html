@@ -1,1 +1,6 @@
 <p>todos-list works!</p>
+<ul>
+  <li *ngFor='let todo of todos'>
+    <a [routerLink]='[todo.id]'>{{todo.title}}</a>
+  </li>
+</ul>

@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { TodosListComponent } from './components/todos-list/todos-list.component';
 import { TodosComponent } from './todos.component';
 import { TodosDetailsComponent } from './components/todos-details/todos-details.component';
+import { todosResolver } from './resolvers/todos.resolver';
+import { TodosEditComponent } from './components/todos-edit/todos-edit.component';
+import { todoResolver } from './resolvers/todo.resolver';
 
 const routes: Routes = [
   {
@@ -11,11 +14,21 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: TodosListComponent
+        component: TodosListComponent,
+        resolve: {
+          todos: todosResolver
+        }
       },
       {
         path: ':id',
-        component: TodosDetailsComponent
+        component: TodosDetailsComponent,
+        resolve: {
+          todo: todoResolver
+        }
+      },
+      {
+        path: ':id/edit',
+        component: TodosEditComponent
       }
     ]
   }
