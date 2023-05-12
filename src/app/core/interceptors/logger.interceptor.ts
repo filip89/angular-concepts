@@ -4,27 +4,22 @@ import {
   HttpEventType,
   HttpHandler,
   HttpInterceptor,
-  HttpRequest,
-  HttpResponse
+  HttpRequest
 } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
 @Injectable()
 export class LoggerInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request).pipe(
-      tap((event) => {
-        if (event.type === HttpEventType.Sent) this.logSent(request);
-        if (event.type === HttpEventType.Response) this.logResponse(event);
-      })
-    );
+    return next.handle(request).pipe(tap((event) => this.log(request, event)));
   }
 
-  private logSent(event: HttpRequest<unknown>) {
-    console.log(`Request sent to ${event.url}`);
-  }
-
-  private logResponse(response: HttpResponse<unknown>) {
-    console.log(`Response received with status ${response.status}`);
+  private log(request: HttpRequest<unknown>, event: HttpEvent<unknown>) {
+    if (event.type === HttpEventType.Sent) {
+      console.log(`Request sent to ${request.url}`);
+    }
+    if (event.type === HttpEventType.Response) {
+      console.log(`Response received with status ${event.status}`);
+    }
   }
 }
