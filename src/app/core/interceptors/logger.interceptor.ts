@@ -16,7 +16,7 @@ export class LoggerInterceptor implements HttpInterceptor {
 
   private log(request: HttpRequest<unknown>, event: HttpEvent<unknown>) {
     if (event.type === HttpEventType.Sent) {
-      console.log(`Request sent to ${request.url}`);
+      console.log(`Request sent to ${request.method} ${request.url}`);
     }
     if (event.type === HttpEventType.Response) {
       console.log(`Response received with status ${event.status}`);

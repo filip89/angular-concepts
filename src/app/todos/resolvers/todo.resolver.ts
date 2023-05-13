@@ -8,5 +8,5 @@ export const todoResolver: ResolveFn<Todo> = (route: ActivatedRouteSnapshot) => 
   if (!todoId) {
     throw new Error('Missing todo id');
   }
-  return inject(TodosApiService).getTodo(+todoId);
+  return inject(TodosApiService).get(+todoId);
 };

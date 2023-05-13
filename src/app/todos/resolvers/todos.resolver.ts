@@ -6,6 +6,6 @@ import { map } from 'rxjs';
 
 export const todosResolver: ResolveFn<Todo[]> = () => {
   return inject(TodosApiService)
-    .getTodos()
+    .filter()
     .pipe(map((todos) => todos.slice(0, 10)));
 };

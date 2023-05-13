@@ -1,0 +1,7 @@
+<p>todos-create works!</p>
+<form [formGroup]='formGroup' (ngSubmit)='onSubmit()'>
+  <div>
+    <input formControlName='title' name='title' />
+  </div>
+  <button type='submit' [disabled]='!formGroup.valid'>Submit</button>
+</form>

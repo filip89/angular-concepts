@@ -4,8 +4,8 @@ import { TodosListComponent } from './components/todos-list/todos-list.component
 import { TodosComponent } from './todos.component';
 import { TodosDetailsComponent } from './components/todos-details/todos-details.component';
 import { todosResolver } from './resolvers/todos.resolver';
-import { TodosEditComponent } from './components/todos-edit/todos-edit.component';
 import { todoResolver } from './resolvers/todo.resolver';
+import { TodosCreateComponent } from './components/todos-create/todos-create.component';
 
 const routes: Routes = [
   {
@@ -20,15 +20,15 @@ const routes: Routes = [
         }
       },
       {
+        path: 'create',
+        component: TodosCreateComponent
+      },
+      {
         path: ':id',
         component: TodosDetailsComponent,
         resolve: {
           todo: todoResolver
         }
-      },
-      {
-        path: ':id/edit',
-        component: TodosEditComponent
       }
     ]
   }

@@ -16,15 +16,15 @@ export class TodosApiService {
 
   constructor(private http: HttpClient) {}
 
-  getTodos() {
+  filter() {
     return this.http.get<Todo[]>(`${this.baseUrl}/todos`);
   }
 
-  getTodo(id: number) {
+  get(id: number) {
     return this.http.get<Todo>(`${this.baseUrl}/todos/${id}`);
   }
 
-  createTodo(todo: Pick<Todo, 'title'>) {
+  create(todo: Pick<Todo, 'title'>) {
     return this.http.post<Todo>(`${this.baseUrl}/todos`, todo);
   }
 }
