@@ -24,7 +24,7 @@ export class TodosApiService {
     return this.http.get<Todo>(`${this.baseUrl}/todos/${id}`);
   }
 
-  create(todo: Pick<Todo, 'title'>) {
+  create(todo: Pick<Todo, 'title' | 'difficulty'>) {
     return this.http.post<Todo>(`${this.baseUrl}/todos`, todo);
   }
 }

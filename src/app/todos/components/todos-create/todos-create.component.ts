@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class TodosCreateComponent {
   formGroup = new FormGroup({
-    title: new FormControl('', { nonNullable: true, validators: [Validators.required] })
+    title: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+    difficulty: new FormControl(3, { nonNullable: true })
   });
 
   constructor(private todosApi: TodosApiService, private router: Router) {}
@@ -21,9 +22,8 @@ export class TodosCreateComponent {
       Alternatively we can use simpler template forms which offer a directive
       that basically wraps and sets up a FormControl for us.
     */
-    const saveData = {
-      title: this.formGroup.value.title || ''
-    };
-    this.todosApi.create(saveData).subscribe(() => this.router.navigate(['/todos']));
+    this.todosApi
+      .create(this.formGroup.getRawValue())
+      .subscribe(() => this.router.navigate(['/todos']));
   }
 }

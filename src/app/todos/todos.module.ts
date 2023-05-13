@@ -6,9 +6,10 @@ import { TodosDetailsComponent } from './components/todos-details/todos-details.
 import { TodosComponent } from './todos.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodosCreateComponent } from './components/todos-create/todos-create.component';
+import { RatingInputModule } from '../widgets/rating-input/rating-input.module';
 
 @NgModule({
   declarations: [TodosListComponent, TodosDetailsComponent, TodosComponent, TodosCreateComponent],
-  imports: [CommonModule, ReactiveFormsModule, TodosRoutingModule]
+  imports: [CommonModule, ReactiveFormsModule, TodosRoutingModule, RatingInputModule]
 })
 export class TodosModule {}
