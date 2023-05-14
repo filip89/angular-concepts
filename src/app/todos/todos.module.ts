@@ -7,9 +7,16 @@ import { TodosComponent } from './todos.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodosCreateComponent } from './components/todos-create/todos-create.component';
 import { RatingInputModule } from '../widgets/rating-input/rating-input.module';
+import { CardGridModule } from '../widgets/card-grid/card-grid.module';
 
 @NgModule({
   declarations: [TodosListComponent, TodosDetailsComponent, TodosComponent, TodosCreateComponent],
-  imports: [CommonModule, ReactiveFormsModule, TodosRoutingModule, RatingInputModule]
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    TodosRoutingModule,
+    RatingInputModule,
+    CardGridModule
+  ]
 })
 export class TodosModule {}

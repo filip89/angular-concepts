@@ -1,0 +1,5 @@
+<ul class='grid'>
+  <li *ngFor='let item of items' class='item'>
+    <ng-container *ngTemplateOutlet='itemTemplate.templateRef; context: { $implicit: item }'></ng-container>
+  </li>
+</ul>

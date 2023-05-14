@@ -1,7 +1,9 @@
-<p>todos-list works!</p>
-<ul>
-  <li *ngFor='let todo of todos'>
-    <a [routerLink]='[todo.id]'>{{todo.title}}</a>
-  </li>
-</ul>
-<a [routerLink]='["create"]'>Add new</a>
+<a class='add-new' [routerLink]='["create"]'>Add new</a>
+<app-card-grid [items]='todos'>
+  <ng-template appCardItem let-item>
+    <a class='item' [routerLink]='[item.id]'>
+      <span>{{item.id}}</span>
+      <p>{{item.title}}</p>
+    </a>
+  </ng-template>
+</app-card-grid>
