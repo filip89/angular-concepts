@@ -19,7 +19,7 @@ export class TodosCreateComponent {
   onSubmit() {
     /*
       Here we use reactive forms which are generally recommended.
-      Alternatively we can use simpler template forms which offer a directive
+      Alternatively, we can use simpler template forms which provide us with a directive
       that basically wraps and sets up a FormControl for us.
     */
     this.todosApi

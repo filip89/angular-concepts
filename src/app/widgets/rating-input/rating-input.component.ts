@@ -4,8 +4,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 /*
   This is an example how we can use ControlValueAccessor interface to serve as a
   bridge between our custom control component and FormControl.
-  That way we can integrate the custom control with reactive forms in the same way
-  we integrate the native controls.
+  That way we can integrate the custom control with forms in the same way
+  we integrate the native controls. We can use it with both the reactive and
+  template-driven forms.
 */
 
 @Component({
