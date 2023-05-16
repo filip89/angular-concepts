@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Todo } from '../../models/todo';
+import { map, Observable, startWith } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { debounceTimeAfterFirst } from '../../../core/operators/debounceTimeAfterFirst';
 
 @Component({
   selector: 'app-todos-list',
@@ -8,18 +11,21 @@ import { Todo } from '../../models/todo';
   styleUrls: ['./todos-list.component.scss']
 })
 export class TodosListComponent implements OnInit {
-  todos!: Todo[];
+  todos$?: Observable<Todo[]>;
+  searchControl = new FormControl('', { nonNullable: true });
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     /*
-      we use a simple way to get the data here, although we could have used router.data
-      instead and subscribed to it or set up todos as an observable and used an async pipe in the template
-      (we'll do that in the details page example)
-      - ActivatedRouteSnapshot holds properties related to the route as static values (collected at the moment)
-        while ActivatedRoute holds those properties as observables
+      ActivatedRouteSnapshot holds properties related to the route as static values (collected at the moment)
+      while ActivatedRoute holds those properties as observables.
     */
-    this.todos = this.route.snapshot.data['todos'];
+    const allTodos: Todo[] = this.route.snapshot.data['todos'];
+    const search$ = this.searchControl.valueChanges.pipe(startWith(''));
+    this.todos$ = search$.pipe(
+      debounceTimeAfterFirst(500),
+      map((search) => allTodos.filter((todo) => todo.title.includes(search)))
+    );
   }
 }

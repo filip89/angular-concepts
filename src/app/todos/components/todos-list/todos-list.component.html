@@ -1,9 +1,14 @@
-<a class='add-new' [routerLink]='["create"]'>Add new</a>
-<app-card-grid [items]='todos'>
-  <ng-template appCardItem let-item>
-    <a class='item' [routerLink]='[item.id]'>
-      <span>{{item.id}}</span>
-      <p>{{item.title}}</p>
-    </a>
-  </ng-template>
-</app-card-grid>
+<div class='container'>
+  <a class='add-new' [routerLink]='["create"]'>Add new</a>
+  <div>
+    <input [formControl]='searchControl' />
+  </div>
+  <app-card-grid [items]='(todos$ | async) || []'>
+    <ng-template appCardItem let-item>
+      <a class='item' [routerLink]='[item.id]'>
+        <span>{{item.id}}</span>
+        <p>{{item.title}}</p>
+      </a>
+    </ng-template>
+  </app-card-grid>
+</div>
