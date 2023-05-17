@@ -18,7 +18,7 @@ export class TodosListComponent implements OnInit {
 
   ngOnInit() {
     /*
-      ActivatedRouteSnapshot holds properties related to the route as static values (collected at the moment)
+      @HINT ActivatedRouteSnapshot holds properties related to the route as static values (collected at the moment)
       while ActivatedRoute holds those properties as observables.
     */
     const allTodos: Todo[] = this.route.snapshot.data['todos'];

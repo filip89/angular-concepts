@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LoginComponent],
-  //Forms module TODO explain ngSubmit?
   imports: [CommonModule, AuthRoutingModule, FormsModule]
 })
-export class AuthModule {} //as an example, auth module will be added to app module imports and eagerly loaded TODO
+export class AuthModule {} //@HINT auth module will be added to app module imports and eagerly loaded

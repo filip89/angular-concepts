@@ -4,6 +4,7 @@ import { Todo } from '../models/todo';
 
 @Injectable({
   /*
+    @HINT
     - service will be available everywhere
     - will only be loaded if used somewhere (can be tree shaken)
     - therefore if used in a lazy loaded module it will only be instantiated

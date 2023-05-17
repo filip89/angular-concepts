@@ -10,7 +10,7 @@ export class CardGridComponent {
   @Input() items!: unknown[];
 
   /*
-    We have two types of components children: view and content children.
+    @HINT We have two types of components children: view and content children.
     View children are the ones used directly in the template of the component, while
     content children are the ones we put between the components tags when we use the
     component in another component as a view child (we call that content projection).

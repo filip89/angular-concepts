@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
-  // mock login for purpose of demonstrating using the guards and auth service TODO
+  // mock login for purpose of demonstrating using the guards and auth service
   onSubmit() {
     this.authService
       .login()

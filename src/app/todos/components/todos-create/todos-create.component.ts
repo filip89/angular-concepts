@@ -18,9 +18,9 @@ export class TodosCreateComponent {
 
   onSubmit() {
     /*
-      Here we use reactive forms which are generally recommended.
-      Alternatively, we can use simpler template forms which provide us with a directive
-      that basically wraps and sets up a FormControl for us.
+      @HINT Here we use reactive forms which are generally recommended.
+      Alternatively, we can use simpler template-driven forms which provide us with a directive
+      ngModel that basically wraps and sets up a FormControl for us.
     */
     this.todosApi
       .create(this.formGroup.getRawValue())
