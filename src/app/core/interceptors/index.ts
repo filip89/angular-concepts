@@ -1,6 +1,7 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { LoggerInterceptor } from './logger.interceptor';
+import { Provider } from '@angular/core';
 
 /*
   @HINT
@@ -10,7 +11,7 @@ import { LoggerInterceptor } from './logger.interceptor';
   - multi is necessary when using multiple services (as an array) for the same token
   https://angular.io/guide/http-intercept-requests-and-responses#provide-the-interceptor
 */
-export const interceptorProviders = [
+export const interceptorProviders: Provider[] = [
   { provide: HTTP_INTERCEPTORS, useClass: LoggerInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
 ];

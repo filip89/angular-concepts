@@ -3,8 +3,7 @@ import { LocalStorage } from '../injection-tokens/LocalStorage';
 import { debounceTime, map, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
-  useClass: AuthService
+  providedIn: 'root'
 })
 export class AuthService {
   get isLoggedIn() {
